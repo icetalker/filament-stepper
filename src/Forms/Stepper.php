@@ -6,7 +6,6 @@ use Filament\Forms\Components\Field;
 
 class Stepper extends Field
 {
-
     use \Filament\Forms\Components\Concerns\HasPlaceholder;
     use \Filament\Support\Concerns\HasExtraAlpineAttributes;
     use \Filament\Forms\Components\Concerns\HasExtraInputAttributes;
@@ -70,13 +69,14 @@ class Stepper extends Field
     }
 
     public function disableManualInput($bool = true)
-    {  
+    {
         $this->manualInput = $bool;
+
         return $this;
     }
 
-    public function isManualInputDisabled(){
+    public function isManualInputDisabled()
+    {
         return $this->manualInput;
     }
-
 }

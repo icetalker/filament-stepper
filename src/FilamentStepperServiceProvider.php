@@ -7,7 +7,6 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class FilamentStepperServiceProvider extends PackageServiceProvider
 {
-
     public function boot()
     {
         $this->bootLoaders();
@@ -24,5 +23,4 @@ class FilamentStepperServiceProvider extends PackageServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'filament-stepper');
     }
-
 }
