@@ -2,15 +2,14 @@
 
 namespace Icetalker\FilamentStepper\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use Icetalker\FilamentStepper\FilamentStepperServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
     protected function setUp(): void
     {
         parent::setUp();
-
     }
 
     protected function getPackageProviders($app)
