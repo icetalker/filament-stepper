@@ -1,6 +1,6 @@
 <?php
 
-namespace Icetalker\FilamentStepper\Forms\Componenets;
+namespace Icetalker\FilamentStepper\Forms\Components;
 
 use Filament\Forms\Components\Field;
 
@@ -8,8 +8,8 @@ class Stepper extends Field
 {
 
     use \Filament\Forms\Components\Concerns\HasPlaceholder;
-    use \Filament\Support\Concerns\HasExtraAlpineAttributes;
     use \Filament\Forms\Components\Concerns\HasExtraInputAttributes;
+    use \Filament\Support\Concerns\HasExtraAlpineAttributes;
 
     protected string $view = 'filament-stepper::stepper';
 
@@ -25,7 +25,7 @@ class Stepper extends Field
     {
         $this->maxValue = $value;
 
-        $this->rule(static function (FilamentStepper $component): string {
+        $this->rule(static function (Stepper $component): string {
             $value = $component->getMaxValue();
 
             return "max:{$value}";
@@ -38,7 +38,7 @@ class Stepper extends Field
     {
         $this->minValue = $value;
 
-        $this->rule(static function (FilamentStepper $component): string {
+        $this->rule(static function (Stepper $component): string {
             $value = $component->getMinValue();
 
             return "min:{$value}";
