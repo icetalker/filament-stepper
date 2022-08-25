@@ -30,6 +30,7 @@
         increase: function(){
 
             this.$refs.stepper.stepUp()
+            this.state = Number(this.$refs.stepper.value)
             this.validateData()
             this.checkDisabled()
         },
@@ -37,6 +38,7 @@
         decrease: function(){
 
             this.$refs.stepper.stepDown()
+            this.state = Number(this.$refs.stepper.value)
             this.validateData()
             this.checkDisabled()
 
@@ -44,17 +46,17 @@
 
         checkDisabled: function(){
 
-            let value = Number(this.$refs.stepper.value)
-            let max = Number(this.$refs.stepper.max)
-            let min = Number(this.$refs.stepper.min)
+            let value = this.$refs.stepper.value ? Number(this.$refs.stepper.value) : (this.state ? this.state : null)
+            let max = this.$refs.stepper.max ? Number(this.$refs.stepper.max) : null
+            let min = this.$refs.stepper.min ? Number(this.$refs.stepper.min) : null
 
-            if(value >= max){
+            if(max != null && value >= max){
                 this.incrementDisabled = true
             }else{
                 this.incrementDisabled = false
             }
 
-            if(value <= min){
+            if(min != null && value <= min){
                 this.decrementDisabled = true
             }else{
                 this.decrementDisabled = false
@@ -66,9 +68,13 @@
 
             this.inputError = null
 
-            let value = Number(this.$refs.stepper.value)
+            let value = this.$refs.stepper.value ? Number(this.$refs.stepper.value) : null
 
-            if(this.$refs.stepper.max && value < Number(this.$refs.stepper.min)){
+            if(value == null){
+                return 
+            }
+
+            if(this.$refs.stepper.min && value < Number(this.$refs.stepper.min)){
                 this.inputError = 'The input value must greater than or equal to <span class=\'font-bold\'>' + this.$refs.stepper.min + '</span>.'
                 return
             }
@@ -83,6 +89,7 @@
         },
 
         blurInput: function(){
+            this.state = this.$refs.stepper.value ? Number(this.$refs.stepper.value) : null
             this.validateData()
             this.checkDisabled()
         }
