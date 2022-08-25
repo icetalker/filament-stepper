@@ -20,6 +20,12 @@ class Stepper extends Field
 
     protected bool $manualInput = false;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->rule('numeric', true);
+    }
+
     public function maxValue($value): static
     {
         $this->maxValue = $value;
