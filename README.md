@@ -44,7 +44,6 @@ protected function getFormSchema(): array
 | disableManualInput | Determine if the user could input the number manually | `Stepper::make('quantity')->disableManualInput()` <br/>  This sample will disable manual input, even so, user can still change the value through buttons. |
 | ... | Other methods from filament forms field |
 
-
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
