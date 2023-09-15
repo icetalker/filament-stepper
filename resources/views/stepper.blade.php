@@ -101,13 +101,15 @@
             <template x-if="decrementDisabled || disabled">
                 <button
                     type="button"
-                    class="w-10 h-10 rounded-l bg-gray-300 text-white text-lg font-bold"
+                    style="border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem;"
+                    class="w-10 h-10 bg-gray-300 text-white text-lg font-bold"
                 > - </button>
             </template>
             <template x-if="!decrementDisabled && !disabled">
                 <button
                     type="button"
-                    class="w-10 h-10 rounded-l bg-primary-500 text-white text-lg font-bold"
+                    style="border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem; padding-vertical: 0.5px; "
+                    class="w-10 h-10 bg-primary-500 text-white text-lg font-bold"
                     x-on:click="decrease()"
                 > - </button>
             </template>
@@ -117,11 +119,12 @@
                 type="number"
                 id="{{ $getId() }}"
                 x-model = "state"
+                :style="document.documentElement.classList.contains('dark') ? 'background-color: rgb(39,39,43);' : 'border-width: 1px; border-color: #E8E8E8; background-color: rgb(255,255,255);'"
                 {!! ($placeholder = $getPlaceholder()) ? "placeholder=\"{$placeholder}\"" : null !!}
                 {!! ($interval = $getStep()) ? "step=\"{$interval}\"" : null !!}
                 {!! $isDisabled()||$isManualInputDisabled() ? 'disabled' : null !!}
                 {{ $getExtraInputAttributeBag()->class([
-                    'block w-full transition duration-75 shadow-sm focus:border-primary-600 focus:ring-1 focus:ring-inset focus:ring-primary-600 disabled:opacity-70 filament-stepper',
+                    'border-transparent block w-full transition duration-75 shadow-sm focus:border-primary-600 focus:ring-1 focus:ring-inset focus:ring-primary-600 disabled:opacity-70 filament-stepper',
                     'dark:bg-gray-700 dark:text-white dark:focus:border-primary-600' => config('forms.dark_mode'),
                     'border-gray-300' => ! $errors->has($getStatePath()),
                     'dark:border-gray-600' => (! $errors->has($getStatePath())) && config('forms.dark_mode'),
@@ -138,7 +141,8 @@
             <template x-if="incrementDisabled || disabled">
                 <button
                     type="button"
-                    class="w-10 h-10 rounded-r bg-gray-300 text-white text-lg font-bold"
+                    style="border-top-right-radius: 0.5rem; border-bottom-right-radius: 0.5rem;"
+                    class="w-10 h-10 bg-gray-300 text-white text-lg font-bold"
                     disabled
                 > + </button>
 
@@ -147,7 +151,8 @@
             <template x-if="!incrementDisabled && !disabled">
                 <button
                     type="button"
-                    class="w-10 h-10 rounded-r bg-primary-500 text-white text-lg font-bold"
+                    style="border-top-right-radius: 0.5rem; border-bottom-right-radius: 0.5rem;"
+                    class="w-10 h-10 bg-primary-500 text-white text-lg font-bold"
                     x-on:click="increase()"
                 > + </button>
 
