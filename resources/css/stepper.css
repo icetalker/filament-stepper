@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.it-stepper{
+    & >div{
+        @apply flex items-center;
+
+        & .it-stepper-btn-decrement{
+            @apply w-10 h-10 text-white text-lg font-bold bg-amber-500 disabled:bg-gray-300 rounded-l;
+        }
+
+        & .it-stepper-btn-increment{
+            @apply w-10 h-10 text-white text-lg font-bold bg-amber-500 disabled:bg-gray-300 rounded-r;
+        }
+
+        & .it-stepper-input{
+            @apply bg-white/0 block w-full transition duration-75 shadow-sm focus:border-amber-600 dark:ring-1 focus:ring-1 focus:ring-inset focus:ring-amber-600 disabled:opacity-70 dark:text-white dark:focus:border-amber-600 border-gray-300 dark:bg-white/5 dark:ring-white/20;
+        }
+
+        & .it-stepper-input-error{
+            @apply border-red-600 ring-red-600;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "resources/css/stepper.css": {
+    "file": "css/stepper.css",
+    "src": "resources/css/stepper.css",
+    "isEntry": true,
+    "names": [
+      "stepper.css"
+    ]
+  }
+}
