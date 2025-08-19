@@ -2,10 +2,10 @@
 
 namespace Icetalker\FilamentStepper;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Filament\Support\Assets\Css;
 use Filament\Support\Facades\FilamentAsset;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class FilamentStepperServiceProvider extends PackageServiceProvider
 {
@@ -30,7 +30,7 @@ class FilamentStepperServiceProvider extends PackageServiceProvider
     protected function registerAssets()
     {
         FilamentAsset::register([
-            Css::make('stepper', __DIR__ .'/../dist/assets/css/stepper.css')
+            Css::make('stepper', __DIR__ .'/../dist/assets/css/stepper.css'),
         ], 'filament-stepper');
     }
 }
